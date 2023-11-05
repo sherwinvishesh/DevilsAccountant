@@ -1,6 +1,6 @@
 # Devil's Accountant
 
-## Empowering ASU Students through Personalized Scholarship Guidance
+### Empowering ASU Students through Personalized Scholarship Guidance
 
 ## Check it out [Click here!](https://abc.xyz)
 
