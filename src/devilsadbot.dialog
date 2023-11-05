@@ -1,0 +1,96 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "name": "devilsadbot",
+    "description": "",
+    "id": "A79tBe"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnConversationUpdateActivity",
+      "$designer": {
+        "id": "376720",
+        "comment": "This trigger runs when a conversation update activity is sent to the bot. This indicates a user or bot being added or removed from a conversation."
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "WelcomeMessage",
+            "comment": "Send a welcome message at the beginning of the conversation."
+          },
+          "activity": "${SendActivity_WelcomeMessage()}"
+        },
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "InternationalOrCitizen",
+            "comment": "Ask if the user is an international student or a US citizen."
+          },
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "choices": [
+            "a) International Student",
+            "b) US Citizen"
+          ],
+          "property": "user.internationalOrCitizen",
+          "prompt": "${ChoiceInput_Prompt_InternationalOrCitizen()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnIntent",
+      "$designer": {
+        "id": "AcademicLevelIntent",
+        "name": "AcademicLevel",
+        "comment": "Triggered when the user's academic level is recognized."
+      },
+      "intent": "AcademicLevel",
+      "actions": [
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "AcademicLevelChoice",
+            "comment": "Ask the user's academic level."
+          },
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "choices": [
+            "a) Freshman",
+            "b) Sophomore",
+            "c) Junior",
+            "d) Senior"
+          ],
+          "property": "user.academicLevel",
+          "prompt": "${ChoiceInput_Prompt_AcademicLevel()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnUnknownIntent",
+      "$designer": {
+        "id": "mb2n1u",
+        "comment": "This trigger fires when an incoming activity is not handled by any other trigger."
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "kMjqz1",
+            "comment": "It is recommended to show a message to the user when the bot does not know how to handle an incoming activity and provide follow up options or a help message."
+          },
+          "activity": "${SendActivity_DidNotUnderstand()}"
+        }
+      ]
+    }
+  ],
+  "generator": "devilsadbot.lg",
+  "id": "devilsadbot",
+  "recognizer": "devilsadbot.lu.qna"
+}
