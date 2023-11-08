@@ -2,7 +2,6 @@
 
 ### Empowering ASU Students through Personalized Scholarship Guidance
 
-## Check it out [Click here!](https://abc.xyz)
 
 
 ### 1. Introduction:
